@@ -21,7 +21,7 @@ AlgoScope is the website for visualization of algorithms and data structures
 - [ ] Insertion/Merge Sort - Aarsh
 - [ ] A* SSPP - Annalhq
 - [ ] Linear Search - Aryan
-- [ ] Dijkstra - Atharva
+- [ ] Dijkstra's SSPP - Atharva
 
 ## <a name="features">⚙️ Tech Stack </a>
 
