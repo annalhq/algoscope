@@ -1,5 +1,3 @@
-# AlgoScope
-
 <h3 align="center"> AlgoScope, the DSA visualizer </h3>
 
   <div align="center">
@@ -23,7 +21,7 @@ AlgoScope is the website for visualization of algorithms and data structures
 - [ ] Linear Search - Aryan
 - [ ] Dijkstra's SSPP - Atharva
 
-## <a name="features">⚙️ Tech Stack </a>
+## <a name="tech-stack">⚙️ Tech Stack </a>
 
 - ReactJs
 - Tailwind CSS
