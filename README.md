@@ -15,7 +15,7 @@
 3. ⚙️ [Tech Stack](#tech-stack)
 
 ## <a name="introduction">⚡ Introduction</a>
-The AlgoScope is website for visualization of algorithms and data structures
+AlgoScope is the website for visualization of algorithms and data structures
 
 ## <a name="features">🚀 Algorithms </a>
 - [ ] Insertion/Merge Sort - Aarsh
