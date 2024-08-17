@@ -1,5 +1,3 @@
-# AlgoScope
-
 <h3 align="center"> AlgoScope, the DSA visualizer </h3>
 
   <div align="center">
@@ -15,15 +13,15 @@
 3. ⚙️ [Tech Stack](#tech-stack)
 
 ## <a name="introduction">⚡ Introduction</a>
-The AlgoScope is website for visualization of algorithms and data structures
+AlgoScope is the website for visualization of algorithms and data structures
 
 ## <a name="features">🚀 Algorithms </a>
 - [ ] Insertion/Merge Sort - Aarsh
 - [ ] A* SSPP - Annalhq
 - [ ] Linear Search - Aryan
-- [ ] Dijkstra - Atharva
+- [ ] Dijkstra's SSPP - Atharva
 
-## <a name="features">⚙️ Tech Stack </a>
+## <a name="tech-stack">⚙️ Tech Stack </a>
 
 - ReactJs
 - Tailwind CSS
@@ -33,4 +31,8 @@ The AlgoScope is website for visualization of algorithms and data structures
 
 ## Team Contributions
 
+<<<<<<< HEAD
 <!-- ![Contributions](https://github.com/annalhq/algoscope/graphs/contributors) -->
+=======
+![Contributions](https://github.com/annalhq/algoscope/graphs/contributors)
+>>>>>>> ee161a0eafa0c448fdf90d75ea47cf459559b35f
