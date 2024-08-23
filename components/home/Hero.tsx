@@ -3,6 +3,7 @@ import { Spotlight } from './ui/Spotlight';
 import { TextGenerateEffect } from './ui/TextGenerateEffect';
 import MagicButton from './ui/MagicButton';
 import { FaLocationArrow } from 'react-icons/fa'
+import Link from 'next/link'
 
 const Hero = () => {
   return (
@@ -27,14 +28,13 @@ const Hero = () => {
             words="Explore, Master algorithms with Algoscope"
           />
 
-          
-        <a href='/algorithms'>
-          <MagicButton 
+        <Link href="/algorithms">
+        <MagicButton 
             title="Get Started"
             icon={<FaLocationArrow className="text-white" />}
             position='right'
           />
-        </a>
+        </Link>
 
           {/* <p className="text-center md:tracking-tighter mb-4 text-sm md:text-lg lg:text-2xl">
             Built and maintained by Annalhq Shaikh

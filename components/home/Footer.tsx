@@ -14,7 +14,7 @@ const Footer = () => {
      <div className="flex flex-col items-center">
           <div className="flex mt-16 md:flex-row flex-col items-center">
                <p className="md_text-base text-sm md:font-normal font-light">
-                    Built with ❤️ by Annalhq Shaikh
+                    Built with by Annalhq Shaikh
                </p>
           </div>
      </div>
