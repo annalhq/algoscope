@@ -31,8 +31,7 @@ AlgoScope is the website for visualization of algorithms and data structures
 
 ## Team Contributions
 
-<<<<<<< HEAD
-<!-- ![Contributions](https://github.com/annalhq/algoscope/graphs/contributors) -->
-=======
-![Contributions](https://github.com/annalhq/algoscope/graphs/contributors)
->>>>>>> ee161a0eafa0c448fdf90d75ea47cf459559b35f
+
+
+[aa](https://github.com/annalhq/algoscope/graphs/contributors)
+
