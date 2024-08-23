@@ -16,10 +16,10 @@
 AlgoScope is the website for visualization of algorithms and data structures
 
 ## <a name="features">🚀 Algorithms </a>
-- [ ] Insertion/Merge Sort - Aarsh
-- [ ] A* SSPP - Annalhq
-- [ ] Linear Search - Aryan
-- [ ] Dijkstra's SSPP - Atharva
+- [ ] Stack Algorithms - Aarsh
+- [ ] SSPP (Dijkstra and A*) - Annalhq
+- [ ] Searching algorithms - Aryan
+- [ ] Hashing Algorithms - Atharva
 
 ## <a name="tech-stack">⚙️ Tech Stack </a>
 
@@ -33,5 +33,5 @@ AlgoScope is the website for visualization of algorithms and data structures
 
 
 
-[aa](https://github.com/annalhq/algoscope/graphs/contributors)
+[Team Contribution](https://github.com/annalhq/algoscope/graphs/contributors)
 
