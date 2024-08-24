@@ -1,3 +1,5 @@
+// layout-client, as use client was conflicting with exporting metadata in layout.tsx
+
 "use client";
 
 import { usePathname } from "next/navigation";

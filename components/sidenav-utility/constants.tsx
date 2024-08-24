@@ -96,8 +96,8 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     icon: <Icon icon="lucide:route" width="24" height="24" />,
     submenu: true,
     subMenuItems: [
-      { title: 'Pre-test', path: '/sssp/pretest' },
-      { title: 'Introduction', path: '/sssp/introduction' },
+      { title: 'Pre-test', path: '/sssp/pretest'},
+      { title: 'Introduction', path: '/sssp/' },
       { title: 'Visualization', path: '/sssp/visualization' },
       { title: 'Post-test', path: '/sssp/posttest' },
     ],
@@ -124,16 +124,6 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
       { title: 'Introduction', path: '/hashing/introduction' },
       { title: 'Visualization', path: '/hashing/visualization' },
       { title: 'Post-test', path: '/hashing/posttest' },
-    ],
-  },
-  {
-    title: 'Settings',
-    path: '/settings',
-    icon: <Icon icon="lucide:settings" width="24" height="24" />,
-    submenu: true,
-    subMenuItems: [
-      { title: 'Theme', path: '/settings/theme' },
-      { title: 'Account', path: '/settings/account' },
     ],
   },
   {

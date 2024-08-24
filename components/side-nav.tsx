@@ -15,8 +15,9 @@ const SideNav = () => {
            href="/"
            className="flex flex-row space-x-3 items-center justify-center md:justify-start md:px-6 border-b border-zinc-200 h-12 w-full"
          >
-           <span className="h-7 w-7 bg-zinc-300 rounded-lg" />
-           <span className="font-bold text-xl hidden md:flex">Logo</span>
+           {/* use it as logo placeholder */}
+           {/* <span className="h-7 w-7 bg-zinc-300 rounded-lg" /> */}
+           <span className="font-bold text-xl hidden md:flex">Algoscope</span>
          </Link>
  
          <div className="flex flex-col space-y-2  md:px-6 ">

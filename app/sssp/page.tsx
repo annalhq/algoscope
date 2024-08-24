@@ -1,7 +1,7 @@
 // app/algorithms/index.tsx
 import React from 'react';
 
-export default function AlgorithmsPage() {
+export default function intro() {
   return (
     <div className="container mx-auto p-4">
       <header className="mb-8">
