@@ -12,7 +12,7 @@
 
 1. ⚡ [Introduction](#introduction)
 2. 🚀 [Algorithms](#features)
-3. ⚙️ [Tech Stack](#tech-stack)
+3. 📊 [Tech Stack](#project-stats)
 
 ## <a name="introduction">⚡ Introduction</a>
 AlgoScope is the website for visualization of algorithms and data structures
@@ -30,13 +30,15 @@ AlgoScope is the website for visualization of algorithms and data structures
 - [ ] Searching algorithms - Aryan
 - [ ] Hashing Algorithms - Atharva
 
-## <a name="tech-stack">⚙️ Tech Stack </a>
+## <a name="project-stats">📊 Project Stats </a>
 
-- ReactJs
-- Tailwind CSS
-- Tailwind Animate
-- d3.js
-- three.js
+![GitHub stars](https://img.shields.io/github/stars/annalhq/algoscope?style=social)
+![GitHub forks](https://img.shields.io/github/forks/annalhq/algoscope?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/annalhq/algoscope?style=social)
+
+![GitHub last commit](https://img.shields.io/github/last-commit/annalhq/algoscope)
+![GitHub issues](https://img.shields.io/github/issues-raw/annalhq/algoscope)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/annalhq/algoscope)
 
 ## Team Contributions
 
