@@ -103,15 +103,15 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     ],
   },
   {
-    title: 'Searching',
+    title: 'Sorting',
     path: '/searching',
-    icon: <Icon icon="lucide:search" width="24" height="24" />,
+    icon: <Icon icon="lucide:list" width="24" height="24" />,
     submenu: true,
     subMenuItems: [
-      { title: 'Pre-test', path: '/searching/pretest' },
-      { title: 'Introduction', path: '/searching/introduction' },
-      { title: 'Visualization', path: '/searching/visualization' },
-      { title: 'Post-test', path: '/searching/posttest' },
+      { title: 'Pre-test', path: '/sorting/pretest' },
+      { title: 'Introduction', path: '/sorting/introduction' },
+      { title: 'Visualization', path: '/sorting/visualization' },
+      { title: 'Post-test', path: '/sorting/posttest' },
     ],
   },
   {

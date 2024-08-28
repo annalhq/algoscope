@@ -35,11 +35,11 @@ export default function intro() {
 
       A "greedy" algorithm always makes the locally optimal choice under the assumption that this will lead to an optimal solution overall.
       Example: in making change using the fewest number of coins, always start with the largest coin possible.
+      <br />
       Data structures used by Dijkstra's algorithm include:
-
-      a cost matrix C, where C[i,j] is the weight on the edge connecting node i to node j. If there is no such edge, <Latex>$C[i,j] = \infty$ </Latex>
-      a set of nodes S, containing all the nodes whose shortest path from the source node is known. Initially, S contains only the source node.
-      a distance vector D, where D[i] contains the cost of the shortest path (so far) from the source node to node i, using only those nodes in S as intermediaries.
+      a cost matrix <Latex> $C$ </Latex>, where <Latex> $C[i,j]$ </Latex> is the weight on the edge connecting node i to node j. If there is no such edge, <Latex>$C[i,j] = \infty$ </Latex>
+      a set of nodes <Latex> $S$ </Latex>, containing all the nodes whose shortest path from the source node is known. Initially, <Latex> $S$ </Latex> contains only the source node.
+      a distance vector <Latex> $D$ </Latex>, where <Latex> $D[i]$ </Latex> contains the cost of the shortest path (so far) from the source node to node <Latex> $i$ </Latex>, using only those nodes in <Latex> $S$ </Latex> as intermediaries.
 </p>
       </section>
       <section className="mb-8">

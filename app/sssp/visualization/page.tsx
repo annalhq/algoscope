@@ -1,14 +1,14 @@
-// "use client"; // Add this line at the top
+import React from 'react';
+import { Nav } from '@/components/sssp/nav';
+import Navbar from '@/components/sssp/navbar'
 
-// import React from 'react';
-// import PathfindingVisualizer from '@/algorithms/sssp/pathfindingVisualizer/pathfindingVisualizer';
+const visualizationPage = () => {
+  return (
+  <Nav/>
+    // <div className="h-screen w-screen flex flex-col">
+      
+    // </div>
+   );
+};
 
-// const visualizationPage = () => {
-//   return (
-//     <div>
-//       <PathfindingVisualizer />
-//     </div>
-//   );
-// };
-
-// export default visualizationPage; 
+export default visualizationPage; 
