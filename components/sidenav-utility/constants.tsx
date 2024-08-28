@@ -67,25 +67,20 @@ const MenuItem = ({ item }: { item: SideNavItem }) => {
 export const SIDENAV_ITEMS: SideNavItem[] = [
   {
     title: 'Home',
-    path: '/',
+    path: '/algorithms',
     icon: <Icon icon="lucide:home" width="24" height="24" />,
   },
   {
     title: 'Stacks',
-    path: '/stack',
+    path: '/stacks',
     icon: <Icon icon="lucide:layers" width="24" height="24" />,
     submenu: true,
     subMenuItems: [
       { title: 'Pre-test', path: '/stack/pretest' },
-      { title: 'Introduction', path: '/stack/introduction' },
+      { title: 'Introduction', path: '/stacks' },
       {
         title: 'Visualization',
         path: '/stack/visualization',
-        submenu: true,
-        subMenuItems: [
-          { title: 'Sub-Visualization 1', path: '/stack/visualization/sub1' },
-          { title: 'Sub-Visualization 2', path: '/stack/visualization/sub2' },
-        ],
       },
       { title: 'Post-test', path: '/stack/posttest' },
     ],
@@ -109,7 +104,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     submenu: true,
     subMenuItems: [
       { title: 'Pre-test', path: '/sorting/pretest' },
-      { title: 'Introduction', path: '/sorting/introduction' },
+      { title: 'Introduction', path: '/sorting/' },
       { title: 'Visualization', path: '/sorting/visualization' },
       { title: 'Post-test', path: '/sorting/posttest' },
     ],
@@ -121,7 +116,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     submenu: true,
     subMenuItems: [
       { title: 'Pre-test', path: '/hashing/pretest' },
-      { title: 'Introduction', path: '/hashing/introduction' },
+      { title: 'Introduction', path: '/hashing/' },
       { title: 'Visualization', path: '/hashing/visualization' },
       { title: 'Post-test', path: '/hashing/posttest' },
     ],

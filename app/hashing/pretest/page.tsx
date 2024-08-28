@@ -1,9 +1,11 @@
 import React from 'react'
 
-function page() {
+const pretestPage = () => {
   return (
-    <div>pretest page</div>
+  <div>
+    <p>pre-test app</p>
+  </div>
   )
 }
 
-export default page
+export default pretestPage

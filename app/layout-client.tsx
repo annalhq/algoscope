@@ -17,6 +17,7 @@ export default function LayoutClient({
   const pathname = usePathname();
   const isHomepage = pathname === "/";
 
+
   return (
     <div className="flex">
       {!isHomepage && <SideNav />}
