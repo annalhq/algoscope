@@ -182,7 +182,7 @@ class NavBar extends Component {
                     type="button"
                     onClick={() => this.selectAlgorithm("Visualize Dijkstra")}
                   >
-                    Dijkstra's Algorithm
+                    Dijkstra&apos;s Algorithm
                   </button>
                   <button
                     className="dropdown-item btn-light"
