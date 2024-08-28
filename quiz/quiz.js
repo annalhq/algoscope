@@ -1,5 +1,6 @@
-// src/Quiz.js
+"use client"
 import React, { useState } from "react";
+
 
 function Quiz({ questions }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
