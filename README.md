@@ -21,12 +21,10 @@ AlgoScope is the website for visualization of algorithms and data structures
 - [ ] Stack Algorithms - Aarsh
 - [ ] SSPP Algorithms - Annalhq
 1. A-star
-2. Bidirectional Greedy Search
-3. BFS
-4. DFS
-5. Dijkstra
-6. Greedy First Search
-7. Random Walk
+2. BFS
+3. DFS
+4. Dijkstra
+
 - [ ] Searching algorithms - Aryan
 - [ ] Hashing Algorithms - Atharva
 
