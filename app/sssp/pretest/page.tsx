@@ -1,24 +1,37 @@
 import React from 'react'
 import Quiz from '@/quiz/quiz'
+import Latex from 'react-latex-next';
 
 const sampleQuestions = [
   {
-    question: "To implement Dijkstra’s shortest path algorithm on unweighted graphs so that it runs in linear time, the data structure to be used is:",
-    options: ["Queue", "Stack", "Heap", "B-Tree"],
-    correctAnswer: "Queue",
-    explanation: "The shortest path in an un-weighted graph means the smallest number of edges that must be traversed in order to reach the destination in the graph. This is the same problem as solving the weighted version where all the weights happen to be 1. If we use Queue (FIFO) instead of Priority Queue (Min Heap), we get the shortest path in linear time O(|V| + |E|). Basically we do BFS traversal of the graph to get the shortest paths.",
+    question: "What type of data structure is most commonly used to represent a graph for shortest path algorithms?",
+    options: ["Array", "Stack", "Binary Tree", "Adjancey List"],
+    correctAnswer: "Adjancey List",
+    explanation: "An adjacency list is efficient for representing graphs, especially when it comes to algorithms like Dijkstra's or Bellman-Ford. It allows quick access to all neighbors of a given node",
   },
   {
-    question: " Dijkstra’s algorithm cannot be applied on:",
-    options: ["Directed and weighted graphs", "Container of objects of similar types", "Container of objects of mixed types", "All of the mentioned"],
-    correctAnswer: "Container of objects of similar types",
-    explanation: "Container of objects of similar types",
+    question: "In graph theory, what is a cycle?",
+    options: ["A path that starts and ends at the same node", "A path that connects every pair of nodes in the graph", "A sequence of edges that doesn't revisit any node", "A subgraph that includes all the nodes of the graph"],
+    correctAnswer: "A path that starts and ends at the same node",
+    explanation: "A cycle in a graph is a path that begins and ends at the same vertex, forming a loop. Recognizing cycles is crucial in certain algorithms, especially when dealing with negative weight edges.",
   },
   {
-    question: "Dijkstra’s Algorithm is the prime example for:",
-    options: ["Greedy algorithm", "Branch and bound", "Back tracking", "Dynamic programming"],
-    correctAnswer: "Greedy algorithm",
-    explanation: "Because greedy algorithms generally solve a problem in stages by doing what appears to be the best thing at each stage",
+    question: "What is the difference between a directed graph and an undirected graph?",
+    options: ["A directed graph has nodes, but an undirected graph does not", "A directed graph has edges with a direction, while an undirected", "In a directed graph, all edges have weights; in an undirected graph, they do not", "Directed graphs are only used for trees, while undirected graphs are for networks"],
+    correctAnswer: "A directed graph has edges with a direction, while an undirected graph's edges do not have a direction",
+    explanation: "In a directed graph, edges have a direction indicated by an arrow, showing a one-way relationship between nodes. In an undirected graph, edges have no direction, representing a two-way relationship.",
+  },
+  {
+    question: "What type of data structure is most commonly used to represent a graph for shortest path algorithms?",
+    options: ["Array", "Stack", "Binary Tree", "Adjancey List"],
+    correctAnswer: "Adjancey List",
+    explanation: "An adjacency list is efficient for representing graphs, especially when it comes to algorithms like Dijkstra's or Bellman-Ford. It allows quick access to all neighbors of a given node",
+  },
+  {
+    question: "What is the purpose of using an adjacency matrix in graph representation?",
+    options: ["To store the colors of the nodes", "To efficiently find and store the distances between all pairs of nodes", "To represent a list of all edges", "To list all nodes in the graph"],
+    correctAnswer: "To efficiently find and store the distances between all pairs of nodes",
+    explanation: "An adjacency matrix is a square matrix used to represent a graph, where each cell (i, j) indicates the presence or absence of an edge between nodes i and j, and can store the weight of the edge if present.",
   },
 ];
 
