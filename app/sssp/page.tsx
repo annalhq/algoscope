@@ -2,6 +2,7 @@
 import React from 'react';
 import 'katex/dist/katex.min.css';
 import Latex from 'react-latex-next';
+import Image from 'next/image'
 
 export default function intro() {
   return (
@@ -44,7 +45,13 @@ export default function intro() {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Complexity</h2>
         <p className="text-gray-700">
-          Here, we discuss the time and space complexity of the algorithm, providing insights into its efficiency.
+        Overall, the Fibonacci heap-based implementation will run at the fastest speed.
+        Conversely, the slowest version will be the unordered list-based priority queue version.
+        However, if the graph is well-connected (i.e., having a huge number of edges, aka, having high density), there is not much difference between these three implementations.
+
+        <br/>
+        For example, the following figure illustrates the running time comparison between six variants when the number of nodes is increasing:
+        {/* <Image src="/complexity.jpg" alt="graph" width={500} height={500} /> */} 
         </p>
       </section>
 
