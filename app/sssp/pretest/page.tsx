@@ -1,6 +1,6 @@
 import React from 'react'
 import Quiz from '@/quiz/quiz'
-import Latex from 'react-latex-next';
+
 
 const sampleQuestions = [
   {
