@@ -15,7 +15,8 @@
 3. 📊 [Tech Stack](#project-stats)
 
 ## <a name="introduction">⚡ Introduction</a>
-AlgoScope is the website for visualization of algorithms and data structures
+AlgoScope is the website for visualization of algorithms and data structures. 
+- Featuring Introduction and Quizes on topics
 
 ## <a name="features">🚀 Algorithms </a>
 - [ ] Stack Algorithms - Aarsh
