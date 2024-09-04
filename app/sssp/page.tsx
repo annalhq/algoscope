@@ -1,8 +1,36 @@
 // app/algorithms/index.tsx
-import React from 'react';
+"use client";
+import React, { useRef, useEffect } from 'react';
 import 'katex/dist/katex.min.css';
 import Latex from 'react-latex-next';
-import Image from 'next/image'
+import { usePDFJS } from "@/hooks/usePDFJS"; // Adjust the import path as necessary
+
+//pdfjs 
+const PDFViewer = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  usePDFJS(async (pdfjs) => {
+    const loadingTask = pdfjs.getDocument("https://jeffe.cs.illinois.edu/teaching/algorithms/book/08-sssp.pdf");
+    const pdf = await loadingTask.promise;
+    const page = await pdf.getPage(1);
+    const viewport = page.getViewport({ scale: 1.5 });
+
+    const canvas = canvasRef.current;
+    if (canvas) {
+      const context = canvas.getContext("2d");
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+
+      const renderContext = {
+        canvasContext: context,
+        viewport: viewport,
+      };
+      page.render(renderContext);
+    }
+  });
+
+  return <canvas ref={canvasRef} />;
+};
 
 export default function intro() {
   return (
@@ -77,6 +105,10 @@ export default function intro() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
+        </div>
+        {/* pdf viewer */}
+        <div className="relative mt-8">
+          <PDFViewer />
         </div>
       </section>
     </div>
