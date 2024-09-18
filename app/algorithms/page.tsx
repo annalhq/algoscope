@@ -1,43 +1,64 @@
-// app/algorithms/index.tsx
 import React from 'react';
-
-export default function AlgorithmsPage() {
+import Image from 'app/image/img.jpg';
+const HomePage = () => {
   return (
-    <div className="container mx-auto p-4">
-      <header className="mb-8">
-        <h1 className="text-4xl font-bold text-center">Algorithms Page</h1>
-        <p className="text-center text-gray-600">Learn about various algorithms and their complexities.</p>
-      </header>
+    <div className="flex flex-col h-screen bg-gray-100">
+      {/* Hero Section */}
+      <div className="flex justify-center py-20">
+        <h1 className="text-4xl font-bold text-black-800">ALGOSCOPE</h1>
+      </div>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
-        <p className="text-gray-700">
-          In this section, we introduce the algorithm, explaining its purpose and how it works.
+      {/* About Section */}
+      <div className="flex flex-col py-2">
+        <h2 className="text-2xl font-bold text-black-800">About Us</h2>
+        <p className="text-lg text-gray-600">
+        <b>Algoscope</b> is an educational platform designed to simplify the learning of data structures and algorithms. The project focuses on enhancing understanding through interactive visualizations, allowing users to see algorithms in action. To assess progress, we provide pre and post tests, along with comprehensive theory and resources.
+        This project aims to create an engaging and effective learning experience for students and developers, ensuring mastery of fundamental computer science concepts.
         </p>
-      </section>
+      </div>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Complexity</h2>
-        <p className="text-gray-700">
-          Here, we discuss the time and space complexity of the algorithm, providing insights into its efficiency.
-        </p>
-      </section>
-
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Resources</h2>
-        <p className="text-gray-700 mb-4">
-          Below are some resources to help you understand the algorithm better.
-        </p>
-        <div className="relative" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
-          <iframe
-            className="absolute top-0 left-0 w-full h-full"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="YouTube video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+      {/* Team Members Section */}
+      <div className="flex flex-wrap justify-center py-20">
+        <h2 className="text-2xl font-bold text-black-800">Our Team</h2>
+        <div className="flex flex-col md:flex-row justify-center gap-4 mb-4 py-10">
+          <TeamMember
+            className="shadow-md hover:shadow-lg transition duration-300 ease-in-out hover:scale-110"
+            name="Aarsh Vaidya"
+            algorithm="Stacks"
+            image="https://via.placeholder.com/150"
+          />
+          <TeamMember
+            className="shadow-md hover:shadow-lg transition duration-300 ease-in-out"
+            name="Annalhq Shaikh"
+            algorithm="SSSP"
+            image="https://via.placeholder.com/150"
+          />
+          <TeamMember
+            className="shadow-md hover:shadow-lg transition duration-300 ease-in-out"
+            name="Aryan Nakil"
+            algorithm="Sorting"
+            image="https://via.placeholder.com/150"
+          />
+          <TeamMember
+            className="shadow-md hover:shadow-lg transition duration-300 ease-in-out"
+            name="Atharva Kulkarni"
+            algorithm="Hashing"
+            image="https://via.placeholder.com/150"
+          />
         </div>
-      </section>
+      </div>
     </div>
   );
-}
+};
+
+const TeamMember = ({ name, algorithm, image,className }: { name: string; algorithm: string; image: string; className: string }) => {
+  return (
+    <div className="flex flex-col items-center py-10">
+      <img src={image} alt={name} className="w-24 h-24 square-full" />
+      <h3 className="text-lg font-bold text-gray-800">{name}</h3>
+      <p className="text-sm text-gray-600">{algorithm}</p>
+    </div>
+  );
+};
+
+export default HomePage;
