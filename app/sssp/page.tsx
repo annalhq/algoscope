@@ -1,9 +1,6 @@
-// app/algorithms/index.tsx
-"use client";
 import React, { useRef, useEffect } from 'react';
 import 'katex/dist/katex.min.css';
 import Latex from 'react-latex-next';
-import PDFViewer from '@/hooks/PDFViewer';
 
 export default function intro() {
   return (
@@ -78,10 +75,6 @@ export default function intro() {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
-        </div>
-        {/* pdf viewer */}
-        <div className="relative mt-8">
-          <PDFViewer />
         </div>
       </section>
     </div>
