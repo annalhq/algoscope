@@ -1,62 +1,54 @@
 import React from 'react';
-import Image from 'app/image/img.jpg';
-const HomePage = () => {
-  return (
-    <div className="flex flex-col h-screen bg-gray-100">
-      {/* Hero Section */}
-      <div className="flex justify-center py-20">
-        <h1 className="text-4xl font-bold text-black-800">ALGOSCOPE</h1>
-      </div>
+import { UserCircle } from 'lucide-react';
 
-      {/* About Section */}
-      <div className="flex flex-col py-2">
-        <h2 className="text-2xl font-bold text-black-800">About Us</h2>
-        <p className="text-lg text-gray-600">
+interface TeamMember {
+  name: string;
+  Algorithm: string;
+  photo: string;
+}
+
+const teamMembers: TeamMember[] = [
+  { name: 'Annalhq Shaikh', Algorithm: 'SSSP', photo: '/images/1.jpeg' },
+  { name: 'Aarsh Vaidya', Algorithm: 'Stacks', photo: '/images/2.jpeg' },
+  { name: 'Aryan Nakil',Algorithm: 'Sorting', photo: '/images/3.jpg' },
+  { name: 'Atharva Kulkarni',Algorithm: 'Hashing', photo: '/images/4.jpg' },
+];
+
+const HomePage: React.FC = () => {
+  return (
+    <div className="container mx-auto px-4 py-8 ">
+      <h1 className="text-4xl font-bold mb-6 flex justify-center py-5">ALGOSCOPE</h1>
+      
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4">About the Project</h2>
+        <p className="text-lg">
         <b>Algoscope</b> is an educational platform designed to simplify the learning of data structures and algorithms. The project focuses on enhancing understanding through interactive visualizations, allowing users to see algorithms in action. To assess progress, we provide pre and post tests, along with comprehensive theory and resources.
         This project aims to create an engaging and effective learning experience for students and developers, ensuring mastery of fundamental computer science concepts.
         </p>
-      </div>
+      </section>
 
-      {/* Team Members Section */}
-      <div className="flex flex-wrap justify-center py-20">
-        <h2 className="text-2xl font-bold text-black-800">Our Team</h2>
-        <div className="flex flex-col md:flex-row justify-center gap-4 mb-4 py-10">
-          <TeamMember
-            className="shadow-md hover:shadow-lg transition duration-300 ease-in-out hover:scale-110"
-            name="Aarsh Vaidya"
-            algorithm="Stacks"
-            image="https://via.placeholder.com/150"
-          />
-          <TeamMember
-            className="shadow-md hover:shadow-lg transition duration-300 ease-in-out"
-            name="Annalhq Shaikh"
-            algorithm="SSSP"
-            image="https://via.placeholder.com/150"
-          />
-          <TeamMember
-            className="shadow-md hover:shadow-lg transition duration-300 ease-in-out"
-            name="Aryan Nakil"
-            algorithm="Sorting"
-            image="https://via.placeholder.com/150"
-          />
-          <TeamMember
-            className="shadow-md hover:shadow-lg transition duration-300 ease-in-out"
-            name="Atharva Kulkarni"
-            algorithm="Hashing"
-            image="https://via.placeholder.com/150"
-          />
+      <section>
+        <h2 className="text-2xl font-semibold mb-6 ">Our Team</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {teamMembers.map((member, index) => (
+            <div key={index} className="bg-white shadow-md rounded-lg p-6 flex items-center space-x-4">
+              {member.photo ? (
+                <img 
+                  src={member.photo} 
+                  alt={member.name} 
+                  className="w-24 h-24 rounded-full object-cover"
+                />
+              ) : (
+                <UserCircle size={96} className="text-gray-400" />
+              )}
+              <div>
+                <h3 className="text-xl font-semibold">{member.name}</h3>
+                <p className="text-gray-600">{member.Algorithm}</p>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    </div>
-  );
-};
-
-const TeamMember = ({ name, algorithm, image,className }: { name: string; algorithm: string; image: string; className: string }) => {
-  return (
-    <div className="flex flex-col items-center py-10">
-      <img src={image} alt={name} className="w-24 h-24 square-full" />
-      <h3 className="text-lg font-bold text-gray-800">{name}</h3>
-      <p className="text-sm text-gray-600">{algorithm}</p>
+      </section>
     </div>
   );
 };
