@@ -12,12 +12,12 @@ export default function intro() {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Learning Objectives</h2>
         <p className="text-gray-700">
-        <ul>
+        
           <li>1. Understand the need of hashing.</li>
           <li>2. Have an understanding of the basic method of hashing strings.</li>
           <li>3. Know the various methods of handling collisions in hashing.</li>
           <li>4. Demonstrate knowledge of time and space complexity of hashing techniques.</li>
-        </ul>
+        
         </p>
       </section>
 
@@ -70,6 +70,7 @@ export default function intro() {
         <b>Open Addressing:</b>
         <li>Linear Probing: Search for an empty slot sequentially</li>
         <li>Quadratic Probing: Search for an empty slot using a quadratic function</li>
+        <li>Double Hashing: Uses two hash function to find empty slot if a key is already occupied.</li>
         <b>Closed Addressing:</b>
         <li>Separate Chaining: Store colliding keys in a linked list or binary search tree at each index</li>
         </p>
