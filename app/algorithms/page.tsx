@@ -5,20 +5,20 @@ const HomePage = () => {
     <div className="flex flex-col h-screen bg-gray-100">
       {/* Hero Section */}
       <div className="flex justify-center py-20">
-        <h1 className="text-4xl font-bold text-black-800">ALGOSCOPE</h1>
+        <h1 className="text-4xl font-bold text-black-800">Welcome to Algoscope</h1>
       </div>
 
       {/* About Section */}
       <div className="flex flex-col py-2">
         <h2 className="text-2xl font-bold text-black-800">About Us</h2>
-        <p className="text-lg text-gray-600">
+        <p className="text-lg text-gray-600 py-2">
         <b>Algoscope</b> is an educational platform designed to simplify the learning of data structures and algorithms. The project focuses on enhancing understanding through interactive visualizations, allowing users to see algorithms in action. To assess progress, we provide pre and post tests, along with comprehensive theory and resources.
         This project aims to create an engaging and effective learning experience for students and developers, ensuring mastery of fundamental computer science concepts.
         </p>
       </div>
 
       {/* Team Members Section */}
-      <div className="flex flex-wrap justify-center py-20">
+      <div className="flex flex-col py-2">
         <h2 className="text-2xl font-bold text-black-800">Our Team</h2>
         <div className="flex flex-col md:flex-row justify-center gap-4 mb-4 py-10">
           <TeamMember
