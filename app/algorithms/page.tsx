@@ -1,78 +1,85 @@
 import React from "react";
+import { Card, CardHeader, CardFooter } from "@/components/ui/card";
+import { Github, Linkedin } from "lucide-react";
+
+const teamMembers = [
+  {
+    name: "Annalhq Shaikh",
+    description: "Added algorithms for SSSP.",
+    github: "https://github.com/annalhq",
+    linkedin: "https://linkedin.com/in/annalhq",
+    image: "/images/annalhq.png", 
+  },
+  {
+    name: "Atharva Kulkarni",
+    description: "Added algorithms for hashing",
+    github: "https://github.com/atharva",
+    linkedin: "https://linkedin.com/in/atharva",
+    image: "/images/atharva.png",
+  },
+  {
+    name: "Aarsh Vaidya",
+    description: "Added algorithms for stacks",
+    github: "https://github.com/aarsh",
+    linkedin: "https://linkedin.com/in/aarsh",
+    image: "/images/aarsh.png",
+  },
+  {
+    name: "Aryan Nakil",
+    description: "Added algorithms for sorting",
+    github: "https://github.com/aryan",
+    linkedin: "https://linkedin.com/in/aryan",
+    image: "/images/aryan.png",
+  },
+];
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col h-screen bg-gray-100">
+    <div className="flex flex-col min-h-screen bg-gray-100">
       {/* Hero Section */}
-      <div className="flex justify-center py-20">
+      <div className="flex justify-center py-20 bg-gray-100">
         <h1 className="text-4xl font-bold text-black-800">ALGOSCOPE</h1>
       </div>
 
-      {/* About Section */}
-      <div className="flex flex-col py-2">
-        <h2 className="text-2xl font-bold text-black-800">About Us</h2>
-        <p className="text-lg text-gray-600">
-          <b>Algoscope</b> is an educational platform designed to simplify the
-          learning of data structures and algorithms. The project focuses on
-          enhancing understanding through interactive visualizations, allowing
-          users to see algorithms in action. To assess progress, we provide pre
-          and post tests, along with comprehensive theory and resources. This
-          project aims to create an engaging and effective learning experience
-          for students and developers, ensuring mastery of fundamental computer
-          science concepts.
-        </p>
-      </div>
-
       {/* Team Members Section */}
-      <div className="flex flex-wrap justify-center py-20">
-        <h2 className="text-2xl font-bold text-black-800">Our Team</h2>
-        <div className="flex flex-col md:flex-row justify-center gap-4 mb-4 py-10">
-          <TeamMember
-            className="shadow-md hover:shadow-lg transition duration-300 ease-in-out hover:scale-110"
-            name="Aarsh Vaidya"
-            algorithm="Stacks"
-            image="https://via.placeholder.com/150"
-          />
-          <TeamMember
-            className="shadow-md hover:shadow-lg transition duration-300 ease-in-out"
-            name="Annalhq Shaikh"
-            algorithm="SSSP"
-            image="https://via.placeholder.com/150"
-          />
-          <TeamMember
-            className="shadow-md hover:shadow-lg transition duration-300 ease-in-out"
-            name="Aryan Nakil"
-            algorithm="Sorting"
-            image="https://via.placeholder.com/150"
-          />
-          <TeamMember
-            className="shadow-md hover:shadow-lg transition duration-300 ease-in-out"
-            name="Atharva Kulkarni"
-            algorithm="Hashing"
-            image="https://via.placeholder.com/150"
-          />
+      <div className="flex flex-col py-2 bg-gray-100">
+        <h2 className="text-2xl font-bold text-black-800 text-center mb-8">
+          Our Team
+        </h2>
+        <div className="flex flex-wrap justify-center">
+          {teamMembers.map((member) => (
+            <Card className="m-4 w-64" key={member.name}>
+              <CardHeader>
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-24 h-24 rounded-full mx-auto mb-4"
+                />
+                <h3 className="text-xl font-bold text-center">{member.name}</h3>
+                <p className="text-gray-600 text-center">
+                  {member.description}
+                </p>
+              </CardHeader>
+              <CardFooter className="flex justify-center space-x-4">
+                <a
+                  href={member.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="w-6 h-6 text-gray-600 hover:text-black" />
+                </a>
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin className="w-6 h-6 text-gray-600 hover:text-black" />
+                </a>
+              </CardFooter>
+            </Card>
+          ))}
         </div>
       </div>
-    </div>
-  );
-};
-
-const TeamMember = ({
-  name,
-  algorithm,
-  image,
-  className,
-}: {
-  name: string;
-  algorithm: string;
-  image: string;
-  className: string;
-}) => {
-  return (
-    <div className={`flex flex-col items-center py-10 ${className}`}>
-      <img src={image} alt={name} className="w-24 h-24 rounded-full" />
-      <h3 className="text-lg font-bold text-gray-800">{name}</h3>
-      <p className="text-sm text-gray-600">{algorithm}</p>
     </div>
   );
 };
