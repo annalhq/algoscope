@@ -14,8 +14,8 @@ const teamMembers = [
   {
     name: "Atharva Kulkarni",
     description: "Added algorithms for hashing",
-    github: "https://github.com/atharva",
-    linkedin: "https://linkedin.com/in/atharva",
+    github: "https://github.com/AtharvaKulkarni07",
+    linkedin: "https://www.linkedin.com/in/atharva-kulkarni-824b7a2a5/",
     image: "/images/atharva.png",
   },
   {
@@ -40,6 +40,17 @@ const HomePage = () => {
       {/* Hero Section */}
       <div className="flex justify-center py-20 bg-gray-100">
         <h1 className="text-4xl font-bold text-black-800">ALGOSCOPE</h1>
+      </div>
+
+      {/* About Section */}
+      <div className="flex flex-col py-2 bg-gray-100">
+        <h2 className="text-2xl font-bold text-black-800 text-center mb-8">
+          About Us
+        </h2> 
+        <p className="text-lg text-black-600">
+        <b>Algoscope</b> is an educational platform designed to simplify the learning of data structures and algorithms. The project focuses on enhancing understanding through interactive visualizations, allowing users to see algorithms in action. To assess progress, we provide pre and post tests, along with comprehensive theory and resources.
+        This project aims to create an engaging and effective learning experience for students and developers, ensuring mastery of fundamental computer science concepts.
+        </p>
       </div>
 
       {/* Team Members Section */}
