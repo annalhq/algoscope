@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Card, CardHeader, CardFooter } from "@/components/ui/card";
 import { Github, Linkedin } from "lucide-react";
 
@@ -8,7 +9,7 @@ const teamMembers = [
     description: "Added algorithms for SSSP.",
     github: "https://github.com/annalhq",
     linkedin: "https://linkedin.com/in/annalhq",
-    image: "/images/annalhq.png", 
+    image: "/public/images/1.jpeg", 
   },
   {
     name: "Atharva Kulkarni",
@@ -50,10 +51,12 @@ const HomePage = () => {
           {teamMembers.map((member) => (
             <Card className="m-4 w-64" key={member.name}>
               <CardHeader>
-                <img
+                <Image
                   src={member.image}
                   alt={member.name}
-                  className="w-24 h-24 rounded-full mx-auto mb-4"
+                  width={96}
+                  height={96}
+                  className="rounded-full mx-auto mb-4"
                 />
                 <h3 className="text-xl font-bold text-center">{member.name}</h3>
                 <p className="text-gray-600 text-center">
