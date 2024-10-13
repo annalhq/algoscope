@@ -1,5 +1,8 @@
-<h3 align="center"> AlgoScope, the DSA visualizer </h3>
+![last commit](https://img.shields.io/github/last-commit/annalhq/algoscope?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41)
+![repo size](https://img.shields.io/github/repo-size/annalhq/algoscope?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=for-the-badge&logoColor=D9E0EE&labelColor=3D426B)
+![license](https://img.shields.io/github/license/annalhq/algoscope?style=for-the-badge&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41)
 
+<h3 align="center"> AlgoScope, the DSA visualizer </h3>
   <div align="center">
     <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="reactjs" />
     <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
@@ -15,7 +18,7 @@
 3. 📊 [Tech Stack](#project-stats)
 
 ## <a name="introduction">⚡ Introduction</a>
-AlgoScope is the website for visualization of algorithms and data structures. 
+AlgoScope is the website for visualization of algorithms and data structures.
 - Featuring Introduction and Quizes on topics
 
 ## <a name="features">🚀 Algorithms </a>
