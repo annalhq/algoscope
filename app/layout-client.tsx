@@ -16,7 +16,11 @@ export default function LayoutClient({
 }>) {
   const pathname = usePathname();
   const isHomepage = pathname === "/";
+  const isVisualizationPage = pathname.startsWith("/sssp/visualization");
 
+  if (isVisualizationPage) {
+    return <>{children}</>;
+  }
 
   return (
     <div className="flex">
