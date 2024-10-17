@@ -9,7 +9,7 @@ const teamMembers = [
     description: "Added algorithms for SSSP.",
     github: "https://github.com/annalhq",
     linkedin: "https://linkedin.com/in/annalhq",
-    image: "/public/images/1.jpeg", 
+    image: "/images/annalhq.png", 
   },
   {
     name: "Atharva Kulkarni",
