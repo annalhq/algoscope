@@ -27,13 +27,13 @@ export default function intro() {
         <p className="text-gray-700">
           <b>Stacks</b> A stack is a linear data structure that follows the
           Last-In-First-Out (LIFO) principle, where the most recently added
-          element is the first to be removed. This structure allows insertion
+          element is the first to be removed.This structure allows insertion
           and deletion of elements only at one end, known as the top  of the
-          stack. Common operations include push (adding an element), pop
+          stack.Common operations include push (adding an element), pop
           (removing the top element), and peek (viewing the top element without
           removing it).Stacks are widely used in various applications, such as
           managing function calls, expression evaluation, and implementing undo
-          mechanisms in software citeturn0search1.
+          mechanisms in software cite turn0search1.
         </p>
         <p className="text-gray-700">
           <b>Push :</b>Adds an element to the top of the stack.
