@@ -48,31 +48,31 @@ export const Dashboard: React.FC<DashboardProps> = ({
       <div className="flex space-x-2">
         <button
           onClick={setStartNode}
-          className="p-2 bg-green-500 text-white rounded"
+          className="p-2 bg-green-500 text-white rounded flex items-center"
         >
           <Play size={16} />
         </button>
         <button
           onClick={setEndNode}
-          className="p-2 bg-red-500 text-white rounded"
+          className="p-2 bg-red-500 text-white rounded flex items-center"
         >
           <Target size={16} />
         </button>
         <button
           onClick={generateMaze}
-          className="p-2 bg-blue-500 text-white rounded"
+          className="p-2 bg-blue-500 text-white rounded flex items-center"
         >
           <Grid size={16} />
         </button>
         <button
           onClick={clearGrid}
-          className="p-2 bg-gray-500 text-white rounded"
+          className="p-2 bg-gray-500 text-white rounded flex items-center"
         >
           <RefreshCw size={16} />
         </button>
         <button
           onClick={visualizeAlgorithm}
-          className="p-2 bg-purple-500 text-white rounded"
+          className="p-2 bg-purple-500 text-white rounded flex items-center"
         >
           <Zap size={16} />
         </button>
