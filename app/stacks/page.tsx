@@ -15,10 +15,7 @@ export default function intro() {
           <li>1. Understand the need of stacks.</li>
           <li>2. Have an understanding of the basic method of stacks.</li>
           <li>3. Know the various methods of Stacks.</li>
-          <li>
-            4. Demonstrate knowledge of time and space complexity of Stacks
-            techniques.
-          </li>
+          <li>4. Demonstrate knowledge of time and space complexity of Stacks techniques.</li>
         </p>
       </section>
 
