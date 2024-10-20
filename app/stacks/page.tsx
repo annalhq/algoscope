@@ -76,9 +76,11 @@ export default function intro() {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Applications of Stacks:</h2>
         <p className="text-gray-700">
-          1.Undo/Redo functionality in text editors 2.Backtracking problems
-          (like solving a maze) 3.Parenthesis checking in expressions 4.Call
-          stack in recursive function calls
+          1.Undo/Redo functionality in text editors <br /> 
+          2.Backtracking problems(like solving a maze) <br />
+          3.Parenthesis checking in expressions <br /> 
+          4.Call stack in recursive function calls <br />
+          5.Depth-First Search (DFS) in Graphs and Trees <br />
         </p>
       </section>
 
@@ -87,15 +89,7 @@ export default function intro() {
         <p className="text-gray-700 mb-4">
           Below are some resources to help you understand the algorithm better.
         </p>
-        <div className="relative" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
-          <iframe
-            className="absolute top-0 left-0 w-full h-full"
-            src="https://www.youtube.com/embed/Aa2sqUhIn-E"
-            title="YouTube video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
+        
         <div className="relative mt-8" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
           <iframe
             className="absolute top-0 left-0 w-full h-full"
