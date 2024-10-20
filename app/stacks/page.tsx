@@ -81,6 +81,32 @@ export default function intro() {
           stack in recursive function calls
         </p>
       </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Resources</h2>
+        <p className="text-gray-700 mb-4">
+          Below are some resources to help you understand the algorithm better.
+        </p>
+        <div className="relative" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
+          <iframe
+            className="absolute top-0 left-0 w-full h-full"
+            src="https://www.youtube.com/embed/Aa2sqUhIn-E"
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+        <div className="relative mt-8" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
+          <iframe
+            className="absolute top-0 left-0 w-full h-full"
+            src="https://www.youtube.com/watch?v=rdmNr-9_RNY"
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </section>
+    
     </div>
   );
 }
