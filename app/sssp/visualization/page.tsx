@@ -1,176 +1,360 @@
-"use client";
-import React, { useState, useEffect, useRef } from "react";
-import { Play, Pause, RefreshCw, ChevronDown } from "lucide-react";
-import { dijkstra } from "@/backend/sssp/dijkstra";
-import { generateRandomMaze } from "@/backend/sssp/randomMazeGeneration";
-import { getCellObjects, getPath } from "@/utils/helpers";
-import Cell from "@/components/sssp/cell";
-import AlgoSelect from "@/components/sssp/algorithmSelect";
-import {
-  CellInterface,
-  SearchingAlgoEnum,
-  AlgorithmOption,
-} from "@/interface";
+"use client"
+import React, { useState, useCallback, useEffect } from "react";
 
-const PathfindingVisualizer: React.FC = () => {
-  const [grid, setGrid] = useState<CellInterface[][]>([]);
-  const [startPoint, setStartPoint] = useState<CellInterface | null>(null);
-  const [endPoint, setEndPoint] = useState<CellInterface | null>(null);
-  const [selectedAlgo, setSelectedAlgo] = useState<AlgorithmOption | null>(
-    null
-  );
-  const [isVisualizing, setIsVisualizing] = useState(false);
-  const [cellsVisited, setCellsVisited] = useState(0);
-  const [pathLength, setPathLength] = useState(0);
-  const [executionTime, setExecutionTime] = useState(0);
+const GRID_ROWS = 20;
+const GRID_COLS = 40;
 
-  useEffect(() => {
-    resetGrid();
+type NodeType = "unvisited" | "wall" | "visited" | "path";
+type PlacementMode = "wall" | "start" | "end" | null;
+
+interface Node {
+  row: number;
+  col: number;
+  distance: number;
+  isVisited: boolean;
+  previousNode: Node | null;
+  type: NodeType;
+  isWall: boolean;
+}
+
+interface Position {
+  row: number;
+  col: number;
+}
+
+export default function PathfindingVisualizer() {
+  const [grid, setGrid] = useState<Node[][]>(() => initializeGrid());
+  const [startPos, setStartPos] = useState<Position | null>(null);
+  const [endPos, setEndPos] = useState<Position | null>(null);
+  const [isMousePressed, setIsMousePressed] = useState(false);
+  const [placementMode, setPlacementMode] = useState<PlacementMode>(null);
+
+  const clearBoard = useCallback(() => {
+    const newGrid = initializeGrid();
+    setGrid(newGrid);
+    setStartPos(null);
+    setEndPos(null);
+    setPlacementMode(null);
   }, []);
 
-  const resetGrid = () => {
-    const newGrid = getCellObjects();
-    setGrid(newGrid);
-    setStartPoint(null);
-    setEndPoint(null);
-    setCellsVisited(0);
-    setPathLength(0);
-    setExecutionTime(0);
-  };
-
-  const handleCellClick = (cell: CellInterface) => {
-    if (isVisualizing) return;
-
-    const newGrid = [...grid];
-    const clickedCell = newGrid[cell.row][cell.col];
-
-    if (!startPoint) {
-      clickedCell.isStartPoint = true;
-      setStartPoint(clickedCell);
-    } else if (!endPoint && !clickedCell.isStartPoint) {
-      clickedCell.isEndPoint = true;
-      setEndPoint(clickedCell);
-    } else if (!clickedCell.isStartPoint && !clickedCell.isEndPoint) {
-      clickedCell.isWall = !clickedCell.isWall;
+  const visualizeDijkstra = useCallback(() => {
+    if (!startPos || !endPos) {
+      alert("Please set both start and end positions before visualizing!");
+      return;
     }
 
-    setGrid(newGrid);
+    const startNode = grid[startPos.row][startPos.col];
+    const endNode = grid[endPos.row][endPos.col];
+    const visitedNodesInOrder = dijkstra(grid, startNode, endNode);
+    const shortestPath = getNodesInShortestPath(endNode);
+    animateAlgorithm(visitedNodesInOrder, shortestPath);
+  }, [grid, startPos, endPos]);
+
+  const handleMouseDown = (row: number, col: number) => {
+    if (placementMode === "start") {
+      // Remove old start position if it exists
+      if (startPos) {
+        const newGrid = grid.map(gridRow => gridRow.map(node => ({ ...node })));
+        newGrid[startPos.row][startPos.col].type = "unvisited";
+        setGrid(newGrid);
+      }
+      setStartPos({ row, col });
+      setPlacementMode(null);
+    } else if (placementMode === "end") {
+      // Remove old end position if it exists
+      if (endPos) {
+        const newGrid = grid.map(gridRow => gridRow.map(node => ({ ...node })));
+        newGrid[endPos.row][endPos.col].type = "unvisited";
+        setGrid(newGrid);
+      }
+      setEndPos({ row, col });
+      setPlacementMode(null);
+    } else {
+      // Only allow wall placement if not placing start/end and not clicking on start/end positions
+      if (
+        (!startPos || (row !== startPos.row || col !== startPos.col)) &&
+        (!endPos || (row !== endPos.row || col !== endPos.col))
+      ) {
+        const newGrid = toggleWall(grid, row, col);
+        setGrid(newGrid);
+        setIsMousePressed(true);
+      }
+    }
   };
 
-  const visualizeAlgorithm = () => {
-    if (!startPoint || !endPoint || !selectedAlgo) return;
+  const handleMouseEnter = (row: number, col: number) => {
+    if (!isMousePressed) return;
+    
+    // Only allow wall placement if not clicking on start/end positions
+    if (
+      (!startPos || (row !== startPos.row || col !== startPos.col)) &&
+      (!endPos || (row !== endPos.row || col !== endPos.col))
+    ) {
+      const newGrid = toggleWall(grid, row, col);
+      setGrid(newGrid);
+    }
+  };
 
-    setIsVisualizing(true);
-    const startTime = performance.now();
+  const handleMouseUp = () => {
+    setIsMousePressed(false);
+  };
 
-    const [visitedCells, endTime] = dijkstra(grid, startPoint, endPoint);
-    const path = getPath(endPoint);
+  const toggleWall = (grid: Node[][], row: number, col: number): Node[][] => {
+    const newGrid = grid.map((gridRow) => gridRow.map((node) => ({ ...node })));
+    const node = newGrid[row][col];
+    if (startPos && row === startPos.row && col === startPos.col) return newGrid;
+    if (endPos && row === endPos.row && col === endPos.col) return newGrid;
+    node.isWall = !node.isWall;
+    node.type = node.isWall ? "wall" : "unvisited";
+    return newGrid;
+  };
 
-    animateAlgorithm(visitedCells, path, endTime - startTime, startTime);
+  const dijkstra = (grid: Node[][], startNode: Node, endNode: Node): Node[] => {
+    const visitedNodesInOrder: Node[] = [];
+    startNode.distance = 0;
+    const unvisitedNodes = getAllNodes(grid);
+
+    while (unvisitedNodes.length) {
+      sortNodesByDistance(unvisitedNodes);
+      const closestNode = unvisitedNodes.shift()!;
+
+      if (closestNode.isWall) continue;
+      if (closestNode.distance === Infinity) return visitedNodesInOrder;
+
+      closestNode.isVisited = true;
+      visitedNodesInOrder.push(closestNode);
+
+      if (closestNode === endNode) return visitedNodesInOrder;
+
+      updateUnvisitedNeighbors(closestNode, grid);
+    }
+
+    return visitedNodesInOrder;
   };
 
   const animateAlgorithm = (
-    visitedCells: CellInterface[],
-    path: CellInterface[],
-    time: number,
-    startTime: number
-  ) => {    for (let i = 0; i <= visitedCells.length; i++) {
-      if (i === visitedCells.length) {
+    visitedNodesInOrder: Node[],
+    shortestPath: Node[]
+  ) => {
+    for (let i = 0; i <= visitedNodesInOrder.length; i++) {
+      if (i === visitedNodesInOrder.length) {
         setTimeout(() => {
-          animatePath(path, startTime);
+          animateShortestPath(shortestPath);
         }, 10 * i);
         return;
       }
-
       setTimeout(() => {
-        const cell = visitedCells[i];
-        const newGrid = [...grid];
-        const visitedCell = newGrid[cell.row][cell.col];
-        visitedCell.isVisited = true;
-        setGrid(newGrid);
-        setCellsVisited(i + 1);
+        const node = visitedNodesInOrder[i];
+        setGrid((prevGrid) => {
+          const newGrid = prevGrid.map((row) =>
+            row.map((cell) => ({ ...cell }))
+          );
+          if (!node.isWall) {
+            newGrid[node.row][node.col].type = "visited";
+          }
+          return newGrid;
+        });
       }, 10 * i);
     }
   };
 
-  const animatePath = (path: CellInterface[], startTime: number) => {
-    for (let i = 0; i < path.length; i++) {
+  const animateShortestPath = (nodesInShortestPath: Node[]) => {
+    for (let i = 0; i < nodesInShortestPath.length; i++) {
       setTimeout(() => {
-        const cell = path[i];
-        const newGrid = [...grid];
-        const pathCell = newGrid[cell.row][cell.col];
-        pathCell.isPath = true;
-        setGrid(newGrid);
-        setPathLength(i + 1);
-
-        if (i === path.length - 1) {
-          setIsVisualizing(false);
-          setExecutionTime(performance.now() - startTime);
-        }
+        const node = nodesInShortestPath[i];
+        setGrid((prevGrid) => {
+          const newGrid = prevGrid.map((row) =>
+            row.map((cell) => ({ ...cell }))
+          );
+          if (!node.isWall) {
+            newGrid[node.row][node.col].type = "path";
+          }
+          return newGrid;
+        });
       }, 50 * i);
     }
   };
 
-  const generateMaze = () => {
-    if (isVisualizing) return;
-    const newGrid = generateRandomMaze(getCellObjects());
-    setGrid(newGrid);
-    setStartPoint(null);
-    setEndPoint(null);
-  };
+  useEffect(() => {
+    const handleGlobalMouseUp = () => {
+      setIsMousePressed(false);
+    };
+
+    window.addEventListener("mouseup", handleGlobalMouseUp);
+    return () => {
+      window.removeEventListener("mouseup", handleGlobalMouseUp);
+    };
+  }, []);
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Pathfinding Visualizer</h1>
-      <div className="flex space-x-4 mb-4">
-        <AlgoSelect selectedAlgo={selectedAlgo} onSelect={setSelectedAlgo} />
+    <div className="flex flex-col items-center min-h-screen bg-gray-100 p-4">
+      <div className="mb-4 space-x-4">
         <button
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center"
-          onClick={visualizeAlgorithm}
-          disabled={!startPoint || !endPoint || !selectedAlgo || isVisualizing}
+          onClick={clearBoard}
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
         >
-          {isVisualizing ? (
-            <Pause className="mr-2" />
-          ) : (
-            <Play className="mr-2" />
-          )}
-          {isVisualizing ? "Pause" : "Visualize"}
+          Clear Board
         </button>
         <button
-          className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded flex items-center"
-          onClick={generateMaze}
-          disabled={isVisualizing}
+          onClick={() => setPlacementMode("start")}
+          className={`px-4 py-2 text-white rounded ${
+            placementMode === "start" ? "bg-green-600" : "bg-green-500 hover:bg-green-600"
+          }`}
         >
-          <RefreshCw className="mr-2" />
-          Generate Maze
+          Place Start
         </button>
         <button
-          className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded flex items-center"
-          onClick={resetGrid}
-          disabled={isVisualizing}
+          onClick={() => setPlacementMode("end")}
+          className={`px-4 py-2 text-white rounded ${
+            placementMode === "end" ? "bg-red-600" : "bg-red-500 hover:bg-red-600"
+          }`}
         >
-          <RefreshCw className="mr-2" />
-          Reset Grid
+          Place End
+        </button>
+        <button
+          onClick={visualizeDijkstra}
+          className="px-4 py-2 bg-purple-500 text-black rounded hover:bg-purple-600 disabled:bg-gray-400"
+          disabled={!startPos || !endPos}
+        >
+          Visualize Dijkstra
         </button>
       </div>
-      <div className="grid grid-cols-[repeat(52,_minmax(0,_1fr))] gap-0 mb-4">
-        {grid.map((row, rowIndex) =>
-          row.map((cell, colIndex) => (
-            <Cell
-              key={`${rowIndex}-${colIndex}`}
-              cell={cell}
-              onClick={() => handleCellClick(cell)}
-            />
-          ))
-        )}
+
+      <div className="mb-4 text-sm">
+        {placementMode === "start" && "Click any cell to place the start position"}
+        {placementMode === "end" && "Click any cell to place the end position"}
+        {!placementMode && "Click and drag to create walls"}
       </div>
-      <div className="flex justify-between text-sm">
-        <p>Cells visited: {cellsVisited}</p>
-        <p>Path length: {pathLength}</p>
-        <p>Execution time: {executionTime.toFixed(2)} ms</p>
+
+      <div
+        className="grid gap-0.5 bg-gray-200 p-2 rounded"
+        onMouseLeave={() => setIsMousePressed(false)}
+      >
+        {grid.map((row, rowIdx) => (
+          <div key={rowIdx} className="flex gap-0.5">
+            {row.map((node, colIdx) => (
+              <div
+                key={`${rowIdx}-${colIdx}`}
+                className={`
+                  w-6 h-6 
+                  ${getCellClassName(rowIdx, colIdx, startPos, endPos, node)}
+                  cursor-pointer
+                `}
+                onMouseDown={() => handleMouseDown(rowIdx, colIdx)}
+                onMouseEnter={() => handleMouseEnter(rowIdx, colIdx)}
+                onMouseUp={handleMouseUp}
+                onDragStart={(e) => e.preventDefault()}
+              />
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );
-};
+}
 
-export default PathfindingVisualizer;
+function initializeGrid(): Node[][] {
+  const grid = [];
+  for (let row = 0; row < GRID_ROWS; row++) {
+    const currentRow = [];
+    for (let col = 0; col < GRID_COLS; col++) {
+      currentRow.push({
+        row,
+        col,
+        distance: Infinity,
+        isVisited: false,
+        previousNode: null,
+        type: "unvisited" as NodeType,
+        isWall: false,
+      });
+    }
+    grid.push(currentRow);
+  }
+  return grid;
+}
+
+function getCellClassName(
+  row: number,
+  col: number,
+  startPos: Position | null,
+  endPos: Position | null,
+  node: Node
+): string {
+  if (startPos && row === startPos.row && col === startPos.col) {
+    return "bg-green-500 transition-colors";
+  }
+  if (endPos && row === endPos.row && col === endPos.col) {
+    return "bg-red-500 transition-colors";
+  }
+  if (node.isWall) {
+    return "bg-gray-800 transition-colors";
+  }
+  switch (node.type) {
+    case "visited":
+      return "bg-blue-300 transition-colors";
+    case "path":
+      return "bg-yellow-400 transition-colors";
+    default:
+      return "bg-white transition-colors hover:bg-gray-300";
+  }
+}
+
+function getAllNodes(grid: Node[][]): Node[] {
+  const nodes: Node[] = [];
+  for (const row of grid) {
+    for (const node of row) {
+      nodes.push(node);
+    }
+  }
+  return nodes;
+}
+
+function sortNodesByDistance(nodes: Node[]): void {
+  nodes.sort((a, b) => a.distance - b.distance);
+}
+
+function updateUnvisitedNeighbors(node: Node, grid: Node[][]): void {
+  const neighbors = getNeighbors(node, grid);
+  for (const neighbor of neighbors) {
+    neighbor.distance = node.distance + 1;
+    neighbor.previousNode = node;
+  }
+}
+
+function getNeighbors(node: Node, grid: Node[][]): Node[] {
+  const neighbors: Node[] = [];
+  const { row, col } = node;
+  const directions = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
+
+  for (const [dRow, dCol] of directions) {
+    const newRow = row + dRow;
+    const newCol = col + dCol;
+
+    if (
+      newRow >= 0 &&
+      newRow < grid.length &&
+      newCol >= 0 &&
+      newCol < grid[0].length &&
+      !grid[newRow][newCol].isVisited
+    ) {
+      neighbors.push(grid[newRow][newCol]);
+    }
+  }
+
+  return neighbors;
+}
+
+function getNodesInShortestPath(endNode: Node): Node[] {
+  const nodesInShortestPath: Node[] = [];
+  let currentNode: Node | null = endNode;
+  while (currentNode !== null) {
+    nodesInShortestPath.unshift(currentNode);
+    currentNode = currentNode.previousNode;
+  }
+  return nodesInShortestPath;
+}
