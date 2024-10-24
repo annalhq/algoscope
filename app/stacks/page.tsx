@@ -31,18 +31,19 @@ export default function intro() {
           (removing the top element), and peek (viewing the top element without
           removing it).Stacks are widely used in various applications, such as
           managing function calls, expression evaluation, and implementing undo
-          mechanisms in software cite turn0search1.
+          mechanisms in software cite turn0search1. 
+          <br /> <br />
         </p>
         <p className="text-gray-700">
-          <b>Push :</b>Adds an element to the top of the stack.
+          <b>1. Push :</b>Adds an element to the top of the stack.
           <br />
-          <b>Pop :</b> Removes the top element from the stack.
+          <b>2. Pop :</b> Removes the top element from the stack.
           <br />
-          <b>Peek :</b> Returns the top element of the stack without removing
+          <b>3. Peek :</b> Returns the top element of the stack without removing
           it. <br />
-          <b>isEmpty :</b> Checks whether the stack is empty.
+          <b>4. isEmpty :</b> Checks whether the stack is empty.
           <br />
-          <b>isFull :</b>Returns the number of elements in the stack.
+          <b>5. isFull :</b>Returns the number of elements in the stack.
           <br />
         </p>
         <div className="text-gray-700">
@@ -57,46 +58,46 @@ export default function intro() {
       <p className="text-gray-700">
       Adds an item to the stack. If the stack is full, then it is said to be an Overflow condition. <br />
       <b>Algorithm for Push Operation:</b> <br />
-      1.Before pushing the element to the stack, we check if the stack is full . <br />
-      2.If the stack is full (top == capacity-1) , then Stack Overflows and we cannot insert the element to the stack. <br />
-      3.Otherwise, we increment the value of top by 1 (top = top + 1) and the new value is inserted at top position . <br />
-      4.The elements can be pushed into the stack till we reach the capacity of the stack. <br />
+      1. Before pushing the element to the stack, we check if the stack is full . <br />
+      2. If the stack is full (top == capacity-1) , then Stack Overflows and we cannot insert the element to the stack. <br />
+      3. Otherwise, we increment the value of top by 1 (top = top + 1) and the new value is inserted at top position . <br />
+      4. The elements can be pushed into the stack till we reach the capacity of the stack. <br />
       </p> <br /><br />
 
       <h2 className="text-2xl font-semibold mb-4">2.Pop Operation:</h2>
       <p className="text-gray-700">
       Removes an item from the stack. The items are popped in the reversed order in which they are pushed. If the stack is empty, then it is said to be an Underflow condition. <br />
       <b>Algorithm for Pop Operation:</b> <br />
-      1.Before popping the element from the stack, we check if the stack is empty . <br /> 
-      2.If the stack is empty (top == -1), then Stack Underflows and we cannot remove any element from the stack. <br />
-      3.Otherwise, we store the value at top, decrement the value of top by 1 (top = top – 1) and return the stored top value. <br />
+      1. Before popping the element from the stack, we check if the stack is empty . <br /> 
+      2. If the stack is empty (top == -1), then Stack Underflows and we cannot remove any element from the stack. <br />
+      3. Otherwise, we store the value at top, decrement the value of top by 1 (top = top – 1) and return the stored top value. <br />
       </p> <br /><br />
       
       <h2 className="text-2xl font-semibold mb-4">3.Peek Operation:</h2>
       <p className="text-gray-700">
       Returns the top element of the stack. <br />
       <b>Algorithm for Peek Operation:</b> <br />
-      1.Before returning the top element from the stack, we check if the stack is empty. <br /> 
-      2.If the stack is empty (top == -1), we simply print “Stack is empty”.      <br />
-      3.Otherwise, we return the element stored at index = top . <br />
+      1. Before returning the top element from the stack, we check if the stack is empty. <br /> 
+      2. If the stack is empty (top == -1), we simply print “Stack is empty”.      <br />
+      3. Otherwise, we return the element stored at index = top . <br />
       </p> <br /><br />
 
       <h2 className="text-2xl font-semibold mb-4">4.isFull:</h2>
       <p className="text-gray-700">
       Returns true if the stack is full, else false. <br />
       <b>Algorithm for isFull Operation:</b> <br />
-      1.Check for the value of top in stack. <br /> 
-      2.If (top == capacity-1), then the stack is full so return true.      <br />
-      3.Otherwise, the stack is not full so return false. <br />
+      1. Check for the value of top in stack. <br /> 
+      2. If (top == capacity-1), then the stack is full so return true.      <br />
+      3. Otherwise, the stack is not full so return false. <br />
       </p> <br /><br />
 
       <h2 className="text-2xl font-semibold mb-4">5.isEmpty:</h2>
       <p className="text-gray-700">
       Returns true if the stack is empty, else false. <br />
       <b>Algorithm for isEmpty Operation:</b> <br />
-      1.Check for the value of top in stack. <br /> 
-      2.If (top == -1) , then the stack is empty so return true .      <br />
-      3.Otherwise, the stack is not empty so return false. <br />
+      1. Check for the value of top in stack. <br /> 
+      2. If (top == -1) , then the stack is empty so return true .      <br />
+      3. Otherwise, the stack is not empty so return false. <br />
       </p>
 
       </section>
@@ -131,11 +132,29 @@ export default function intro() {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Applications of Stacks:</h2>
         <p className="text-gray-700">
-          1.Undo/Redo functionality in text editors <br /> 
-          2.Backtracking problems(like solving a maze) <br />
-          3.Parenthesis checking in expressions <br /> 
-          4.Call stack in recursive function calls <br />
-          5.Depth-First Search (DFS) in Graphs and Trees <br />
+          <b>1. Function calls: </b> Stacks are used to keep track of the return addresses of function calls, allowing the program to return to the correct location after a function has finished executing.  <br />
+          <b>2. Memory management: </b>Stacks are used to allocate and manage memory in some operating systems and programming languages. <br />
+          <b>3. Syntax parsing: </b> Stacks are used to check the validity of syntax in programming languages and other formal languages. <br />
+          <b>4. Expression evaluation: </b> Stacks are used to evaluate arithmetic expressions written in postfix. They can also help convert infix expressions to postfix or prefix notation. <br />
+        </p>
+      </section>
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Advantages of Stacks:</h2>
+        <p className="text-gray-700">
+          <b>1. Simplicity: </b> Stacks are a simple and easy-to-understand data structure, making them suitable for a wide range of applications.  <br />
+          <b>2. Efficiency: </b> Push and pop operations on a stack can be performed in constant time (O(1)), providing efficient access to data. <br />
+          <b>3. Last-in, First-out (LIFO): </b>Stacks follow the LIFO principle, ensuring that the last element added to the stack is the first one removed. This behavior is useful in many scenarios, such as function calls and expression evaluation. <br />
+          <b>4. Limited memory usage: </b>Stacks only need to store the elements that have been pushed onto them, making them memory-efficient compared to other data structures. <br />
+        </p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Disadvantages of Stacks:</h2>
+        <p className="text-gray-700">
+          <b>1. Limited access: </b>Elements in a stack can only be accessed from the top, making it difficult to retrieve or modify elements in the middle of the stack. <br />
+          <b>2. Potential for overflow: </b>If more elements are pushed onto a stack than it can hold, an overflow error will occur, resulting in a loss of data. <br />
+          <b>3. Not suitable for random access: </b>Stacks do not allow for random access to elements, making them unsuitable for applications where elements need to be accessed in a specific order.<br />
+          <b>4. Limited capacity: </b>Stacks have a fixed capacity, which can be a limitation if the number of elements that need to be stored is unknown or highly variable.<br />
         </p>
       </section>
 
