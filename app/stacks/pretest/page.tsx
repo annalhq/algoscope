@@ -31,23 +31,7 @@ const sampleQuestions = [
     correctAnswer: "Pop",
     explanation: "The 'pop' operation removes the element from the top of the stack.",
   },
-  {
-    question: "Which of the following is NOT an application of stacks?",
-    options: [
-      "Function call management in recursion",
-      "Undo functionality in text editors",
-      "Memory allocation in computers",
-      "Sorting elements in a list",
-    ],
-    correctAnswer: "Sorting elements in a list",
-    explanation: "Stacks are not typically used for sorting; however, they are used in recursion, undo operations, and memory management.",
-  },
-  {
-    question: "Stacks are commonly used in which of the following algorithms?",
-    options: ["Breadth-First Search (BFS)", "Depth-First Search (DFS)", "Merge Sort", "Dijkstra's Algorithm"],
-    correctAnswer: "Depth-First Search (DFS)",
-    explanation: "DFS uses a stack (either explicitly or through recursion) to explore nodes and backtrack when necessary.",
-  },
+
   {
     question: "What does the term ‘overflow’ mean in the context of stacks?",
     options: [
