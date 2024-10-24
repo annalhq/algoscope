@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import StackComponent from './StackComponent'; 
 
-function page() {
+
+function App() {
   return (
-    <div>Visualization page</div>
-  )
+    <div className="App">
+      <h1>Stacks Visualization</h1>
+      <StackComponent />
+    </div>
+  );
 }
 
-export default page
+export default App;
