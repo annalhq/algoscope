@@ -1,6 +1,12 @@
 import React, { useRef, useEffect } from "react";
 import "katex/dist/katex.min.css";
 import Image from 'next/image';
+import stackImage from '/app/stacks/stack.jpg';
+import stackImage1 from '/app/stacks/Push.jpg';
+import stackImage2 from '/app/stacks/Pop.jpg';
+import stackImage3 from '/app/stacks/Peek.jpg';
+import stackImage4 from '/app/stacks/isFull.jpg';
+import stackImage5 from '/app/stacks/isEmpty.jpg';
 
 export default function intro() {
   return (
@@ -46,10 +52,15 @@ export default function intro() {
           <b>5. isFull :</b>Returns the number of elements in the stack.
           <br />
         </p>
-        <div className="text-gray-700">
-          {/* <Image src="/C:\Users\VICTUS\OneDrive\Desktop\Algoscope\app\stacks\stack.jpg" alt="stack" width={500} height={500} /> */}
-        </div>
       </section>
+      <div className="flex justify-center mb-8">
+        <Image
+          src={stackImage}
+          alt="Stack illustration"
+          width={500}
+          height={300} 
+        />
+      </div>
 
       <section className="mb-8">
       <h2 className="text-2xl font-semibold mb-4">Basic Operations on Stack Data Structure</h2>
@@ -62,7 +73,16 @@ export default function intro() {
       2. If the stack is full (top == capacity-1) , then Stack Overflows and we cannot insert the element to the stack. <br />
       3. Otherwise, we increment the value of top by 1 (top = top + 1) and the new value is inserted at top position . <br />
       4. The elements can be pushed into the stack till we reach the capacity of the stack. <br />
-      </p> <br /><br />
+      </p> 
+      <div className="flex justify-center mb-8">
+        <Image
+          src={stackImage1}
+          alt="Stack illustration"
+          width={500}
+          height={300} 
+        />
+      </div>      
+      <br /><br />
 
       <h2><b>2.Pop Operation:</b></h2>
       <p className="text-gray-700">
@@ -71,7 +91,16 @@ export default function intro() {
       1. Before popping the element from the stack, we check if the stack is empty . <br /> 
       2. If the stack is empty (top == -1), then Stack Underflows and we cannot remove any element from the stack. <br />
       3. Otherwise, we store the value at top, decrement the value of top by 1 (top = top – 1) and return the stored top value. <br />
-      </p> <br /><br />
+      </p>
+      <div className="flex justify-center mb-8">
+        <Image
+          src={stackImage2}
+          alt="Stack illustration"
+          width={500}
+          height={300} 
+        />
+      </div>      
+      <br /><br />
       
       <h2><b>3.Peek Operation:</b></h2>
       <p className="text-gray-700">
@@ -80,7 +109,16 @@ export default function intro() {
       1. Before returning the top element from the stack, we check if the stack is empty. <br /> 
       2. If the stack is empty (top == -1), we simply print “Stack is empty”.      <br />
       3. Otherwise, we return the element stored at index = top . <br />
-      </p> <br /><br />
+      </p>
+      <div className="flex justify-center mb-8">
+        <Image
+          src={stackImage3}
+          alt="Stack illustration"
+          width={500}
+          height={300} 
+        />
+      </div>      
+      <br /><br />
 
       <h2><b>4.isFull:</b></h2>
       <p className="text-gray-700">
@@ -89,7 +127,16 @@ export default function intro() {
       1. Check for the value of top in stack. <br /> 
       2. If (top == capacity-1), then the stack is full so return true.      <br />
       3. Otherwise, the stack is not full so return false. <br />
-      </p> <br /><br />
+      </p> 
+      <div className="flex justify-center mb-8">
+        <Image
+          src={stackImage4}
+          alt="Stack illustration"
+          width={500}
+          height={300} 
+        />
+      </div>      
+      <br /><br />
 
       <h2><b>5.isEmpty:</b></h2>
       <p className="text-gray-700">
@@ -99,31 +146,30 @@ export default function intro() {
       2. If (top == -1) , then the stack is empty so return true .      <br />
       3. Otherwise, the stack is not empty so return false. <br />
       </p>
+      <div className="flex justify-center mb-8">
+        <Image
+          src={stackImage5}
+          alt="Stack illustration"
+          width={500}
+          height={300} 
+        />
+      </div>
 
       </section>
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Complexity</h2>
         <p className="text-gray-700">
           The time complexity of stack operations depends on how the stack is
-          implemented, but they are typically efficient:
+          implemented, but they are typically efficient: <br />
+          <pre>
+            <b>   1. Push   :</b> O(1) <br />
+            <b>   2. Pop    :</b> O(1)<br />
+            <b>   3. Peek   :</b> O(1)<br />
+            <b>   4. isFull :</b> O(1)<br />
+            <b>   5. isEmpty:</b> O(1)
+            </pre>
         </p>
-        <ul className="list-disc list-inside text-gray-700">
-          <li>
-            <strong>Push</strong>: O(1)
-          </li>
-          <li>
-            <strong>Pop</strong>: O(1)
-          </li>
-          <li>
-            <strong>Peek</strong>: O(1)
-          </li>
-          <li>
-            <strong>isFull</strong>: O(1)
-          </li>
-          <li>
-            <strong>isEmpty</strong>: O(1)
-          </li>
-        </ul>
+
         <p className="text-gray-700"> <br />
           <strong>Space Complexity</strong>: O(n), where <em>n</em> is the
           number of elements in the stack.
