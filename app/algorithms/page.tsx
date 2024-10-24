@@ -21,8 +21,8 @@ const teamMembers = [
   {
     name: "Aarsh Vaidya",
     description: "Added algorithms for stacks",
-    github: "https://github.com/aarsh",
-    linkedin: "https://linkedin.com/in/aarsh",
+    github: "https://github.com/Aarsh-37",
+    linkedin: "https://www.linkedin.com/in/aarsh-vaidya-8734452b2/",
     image: "/images/aarsh.png",
   },
   {

@@ -14,12 +14,7 @@ const sampleQuestions = [
     correctAnswer: "Underflow",
     explanation: "Underflow occurs when trying to pop an element from an empty stack, as there are no elements to remove.",
   },
-  {
-    question: "Which of the following is true for stack operations in terms of time complexity?",
-    options: ["Push and pop take O(1) time", "Push takes O(1) but pop takes O(n) time", "Both push and pop take O(n) time", "Pop takes O(1) but push takes O(n) time"],
-    correctAnswer: "Push and pop take O(1) time",
-    explanation: "Both push and pop operations in a stack have constant time complexity, O(1), since they involve adding or removing the top element.",
-  },
+
   {
     question: "Which data structure is typically used to implement the function call stack in most programming languages?",
     options: ["Queue", "Stack", "Array", "Linked List"],
