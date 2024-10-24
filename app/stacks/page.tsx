@@ -12,10 +12,10 @@ export default function intro() {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Learning Objectives</h2>
         <p className="text-gray-700">
-          <li>1. Understand the need of stacks.</li>
-          <li>2. Have an understanding of the basic method of stacks.</li>
-          <li>3. Know the various methods of Stacks.</li>
-          <li>4. Demonstrate knowledge of time and space complexity of Stacks techniques.</li>
+          <li>Understand the need of stacks.</li>
+          <li>Have an understanding of the basic method of stacks.</li>
+          <li>Know the various methods of Stacks.</li>
+          <li>Demonstrate knowledge of time and space complexity of Stacks techniques.</li>
         </p>
       </section>
 
@@ -87,15 +87,16 @@ export default function intro() {
           Below are some resources to help you understand the algorithm better.
         </p>
         
-        <div className="relative mt-8" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
+        <div className="relative mt-8" style={{ paddingBottom: '56.25%' }}>
           <iframe
-            className="absolute top-0 left-0 w-full h-full"
-            src="https://www.youtube.com/watch?v=rdmNr-9_RNY"
-            title="YouTube video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
+          className="absolute top-0 left-0 w-full h-full"
+          src="https://www.youtube.com/embed/rdmNr-9_RNY"
+          title="YouTube video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
+
       </section>
     
     </div>
