@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import "katex/dist/katex.min.css";
+import Image from 'next/image';
 
 export default function intro() {
   return (
@@ -44,6 +45,60 @@ export default function intro() {
           <b>isFull :</b>Returns the number of elements in the stack.
           <br />
         </p>
+        <div className="text-gray-700">
+          {/* <Image src="/C:\Users\VICTUS\OneDrive\Desktop\Algoscope\app\stacks\stack.jpg" alt="stack" width={500} height={500} /> */}
+        </div>
+      </section>
+
+      <section className="mb-8">
+      <h2 className="text-2xl font-semibold mb-4">Basic Operations on Stack Data Structure</h2>
+      
+      <h2 className="text-2xl font-semibold mb-4">1.Push Operation:</h2>
+      <p className="text-gray-700">
+      Adds an item to the stack. If the stack is full, then it is said to be an Overflow condition. <br />
+      <b>Algorithm for Push Operation:</b> <br />
+      1.Before pushing the element to the stack, we check if the stack is full . <br />
+      2.If the stack is full (top == capacity-1) , then Stack Overflows and we cannot insert the element to the stack. <br />
+      3.Otherwise, we increment the value of top by 1 (top = top + 1) and the new value is inserted at top position . <br />
+      4.The elements can be pushed into the stack till we reach the capacity of the stack. <br />
+      </p> <br /><br />
+
+      <h2 className="text-2xl font-semibold mb-4">2.Pop Operation:</h2>
+      <p className="text-gray-700">
+      Removes an item from the stack. The items are popped in the reversed order in which they are pushed. If the stack is empty, then it is said to be an Underflow condition. <br />
+      <b>Algorithm for Pop Operation:</b> <br />
+      1.Before popping the element from the stack, we check if the stack is empty . <br /> 
+      2.If the stack is empty (top == -1), then Stack Underflows and we cannot remove any element from the stack. <br />
+      3.Otherwise, we store the value at top, decrement the value of top by 1 (top = top – 1) and return the stored top value. <br />
+      </p> <br /><br />
+      
+      <h2 className="text-2xl font-semibold mb-4">3.Peek Operation:</h2>
+      <p className="text-gray-700">
+      Returns the top element of the stack. <br />
+      <b>Algorithm for Peek Operation:</b> <br />
+      1.Before returning the top element from the stack, we check if the stack is empty. <br /> 
+      2.If the stack is empty (top == -1), we simply print “Stack is empty”.      <br />
+      3.Otherwise, we return the element stored at index = top . <br />
+      </p> <br /><br />
+
+      <h2 className="text-2xl font-semibold mb-4">4.isFull:</h2>
+      <p className="text-gray-700">
+      Returns true if the stack is full, else false. <br />
+      <b>Algorithm for isFull Operation:</b> <br />
+      1.Check for the value of top in stack. <br /> 
+      2.If (top == capacity-1), then the stack is full so return true.      <br />
+      3.Otherwise, the stack is not full so return false. <br />
+      </p> <br /><br />
+
+      <h2 className="text-2xl font-semibold mb-4">5.isEmpty:</h2>
+      <p className="text-gray-700">
+      Returns true if the stack is empty, else false. <br />
+      <b>Algorithm for isEmpty Operation:</b> <br />
+      1.Check for the value of top in stack. <br /> 
+      2.If (top == -1) , then the stack is empty so return true .      <br />
+      3.Otherwise, the stack is not empty so return false. <br />
+      </p>
+
       </section>
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Complexity</h2>
@@ -62,10 +117,13 @@ export default function intro() {
             <strong>Peek</strong>: O(1)
           </li>
           <li>
+            <strong>isFull</strong>: O(1)
+          </li>
+          <li>
             <strong>isEmpty</strong>: O(1)
           </li>
         </ul>
-        <p className="text-gray-700">
+        <p className="text-gray-700"> <br />
           <strong>Space Complexity</strong>: O(n), where <em>n</em> is the
           number of elements in the stack.
         </p>
