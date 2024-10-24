@@ -167,7 +167,7 @@ export default function intro() {
             <b>   3. Peek   :</b> O(1)<br />
             <b>   4. isFull :</b> O(1)<br />
             <b>   5. isEmpty:</b> O(1)
-            </pre>
+          </pre>
         </p>
 
         <p className="text-gray-700"> <br />
