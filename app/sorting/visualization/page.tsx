@@ -1,9 +1,10 @@
-import React from 'react'
+import QuickSortVisualizer from '@/components/algorithms/sorting/QuickSortVisualizer';
 
-function page() {
-  return (
-    <div>Visualization page</div>
-  )
+
+export default function Page() {
+  return (      
+    <main className="min-h-screen p-4">
+      <QuickSortVisualizer />
+    </main>
+  );
 }
-
-export default page

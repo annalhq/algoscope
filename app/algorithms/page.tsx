@@ -28,7 +28,7 @@ const teamMembers = [
   {
     name: "Aryan Nakil",
     description: "Added algorithms for sorting",
-    github: "https://github.com/aryan",
+    github: "https://github.com/Nak3011",
     linkedin: "https://linkedin.com/in/aryan",
     image: "/images/aryan.png",
   },
