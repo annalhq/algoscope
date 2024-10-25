@@ -1,7 +1,6 @@
 "use client"
 import React, { useState } from 'react';
 
-// LinearHashing class from the backend logic
 class LinearHashing {
     tableSize: number;
     hashTable: (number | null | undefined)[];
@@ -48,24 +47,23 @@ class LinearHashing {
 
     delete(key: number) {
       try {
-          // Attempt to search for the key's index in the hash table
+          
           let hashedKey = this.search(key);
   
-          // Validate that hashedKey is a valid index
+          
           if (hashedKey !== undefined && hashedKey !== null) {
-              this.hashTable[hashedKey] = null; // Set the table index to null (deleting the key)
+              this.hashTable[hashedKey] = null; 
               return hashedKey;
           } else {
-              throw "Key Not Found!"; // Handle case if search didn't return a valid index
+              throw "Key Not Found!"; 
           }
       } catch (error) {
-          throw error; // Rethrow the error to be handled elsewhere
+          throw error; 
       }
   }
     
 }
 
-// React component for LinearHashing visualization
 const LinearHashingComponent: React.FC = () => {
     const [linearHash] = useState(new LinearHashing());
     const [key, setKey] = useState<number | string>('');
