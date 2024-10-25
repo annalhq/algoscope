@@ -40,7 +40,7 @@ export default function intro() {
         <p className="text-gray-700">
         The time and space complexity for a hash map (or hash table) is not necessarily O(n) for all operations.
         The typical and desired time complexity for basic operations like insertion, lookup, and deletion in a well-designed hash map is O(1) on average.<br/>
-        Here's a breakdown of time and space complexity for a hash map:<br/>
+        Here&apos;s a breakdown of time and space complexity for a hash map:<br/>
         <b>Time Complexity:</b><br/>
         Average Case:
 
@@ -75,6 +75,32 @@ export default function intro() {
         <li>Separate Chaining: Store colliding keys in a linked list or binary search tree at each index</li>
         </p>
       </section>
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-4">Resources</h2>
+        <p className="text-gray-700 mb-4">
+          Below are some resources to help you understand the hashing.
+        </p>
+        <div className="relative" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
+          <iframe
+            className="absolute top-0 left-0 w-full h-full"
+            src="https://www.youtube.com/embed/Nu8YGneFCWE?si=eio0u3IWjg_c9CzN"
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+        <div className="relative mt-8" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
+          <iframe
+            className="absolute top-0 left-0 w-full h-full"
+            src="https://www.youtube.com/embed/FsfRsGFHuv4?si=0NonJ3Ud1rahovnV"
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </section>
+
     </div>
   );
 }
+
