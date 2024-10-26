@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { Slider } from '@/components/ui/slider';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import React, { useState, useEffect } from "react";
+import { Slider } from "@/components/ui/slider";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 const QuickSortVisualizer = () => {
   const [array, setArray] = useState<number[]>([]);
@@ -15,14 +15,16 @@ const QuickSortVisualizer = () => {
   }, []);
 
   const resetArray = () => {
-    const newArray = Array.from({ length: 20 }, () => 
-      Math.floor(Math.random() * 100) + 1
+    const newArray = Array.from(
+      { length: 20 },
+      () => Math.floor(Math.random() * 100) + 1
     );
     setArray(newArray);
     setIsRunning(false);
   };
 
-  const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+  const delay = (ms: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms));
 
   const quickSort = async (arr: number[], low: number, high: number) => {
     if (low < high) {
@@ -40,18 +42,16 @@ const QuickSortVisualizer = () => {
     for (let j = low; j < high; j++) {
       if (arr[j] < pivot) {
         i++;
-        // Swap elements
         [arr[i], arr[j]] = [arr[j], arr[i]];
         setArray([...arr]);
-        await delay(100 - speed); // Speed control
+        await delay(100 - speed);
       }
     }
 
-    // Place pivot in correct position
     [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
     setArray([...arr]);
     await delay(100 - speed);
-    
+
     return i + 1;
   };
 
@@ -67,21 +67,14 @@ const QuickSortVisualizer = () => {
       <div className="space-y-6">
         <div className="flex justify-between items-center">
           <div className="space-x-2">
-            <Button 
-              onClick={resetArray}
-              disabled={isRunning}
-            >
+            <Button onClick={resetArray} disabled={isRunning}>
               Reset Array
             </Button>
-            <Button 
-              onClick={startSorting}
-              disabled={isRunning}
-            >
+            <Button onClick={startSorting} disabled={isRunning}>
               Start Sorting
             </Button>
           </div>
           <div className="w-48">
-            <label className="block text-sm font-medium mb-2">Speed</label>
             <Slider
               value={[speed]}
               onValueChange={(value) => setSpeed(value[0])}
@@ -92,17 +85,21 @@ const QuickSortVisualizer = () => {
             />
           </div>
         </div>
-        
-        <div className="h-64 flex items-end justify-around border-b border-gray-200">
-          {array.map((value, idx) => (
-            <div
-              key={idx}
-              className="w-4 bg-blue-500 transition-all duration-200"
-              style={{
-                height: `${value}%`,
-              }}
-            />
-          ))}
+
+        <div className="relative h-64">
+          <div className="absolute bottom-0 w-full flex items-end justify-around">
+            {array.map((value, idx) => (
+              <div key={idx} className="flex flex-col items-center">
+                <div
+                  className="w-4 bg-blue-500 transition-all duration-200"
+                  style={{
+                    height: `${value * 2}px`,
+                  }}
+                />
+                <div className="mt-2 text-xs text-gray-600">{value}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </Card>

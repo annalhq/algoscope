@@ -14,7 +14,7 @@ export default function intro() {
         <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
         <p className="text-gray-700">
         Given a sequence of n elements <Latex>$S = (a_1, a_2, \dots, a_n)$</Latex>   from a totally ordered set, and a comparison operator ≤, arrange the elements of S in non-decreasing order.
-        The result is a permutation <Latex>$S' = (a'_1, a'_2, \dots, a'_n)$</Latex> of the original sequence such that <Latex>$a'_1 \leq a'_2 \leq \dots \leq a'_n$</Latex>. 
+        The result is a permutation <Latex>$S = (a_1, a_2, \dots, a_n)$</Latex> of the original sequence such that <Latex>$a_1 \leq a_2 \leq \dots \leq a_n$</Latex>. 
         This problem is known as sorting, and it is a fundamental operation in computer science with numerous applications across various domains.        </p>
         <br />
         <p className="text-gray-700">
@@ -32,7 +32,7 @@ export default function intro() {
     is known for its average-case time complexity of <Latex>$O(n \log n)$</Latex>.
     <br />
     <br />
-    The core idea of QuickSort is to select a 'pivot' element from the array and partition the other elements into 
+    The core idea of QuickSort is to select a pivot element from the array and partition the other elements into 
     two sub-arrays, according to whether they are less than or greater than the pivot. This process is recursively 
     applied to the sub-arrays until the entire array is sorted.
     <br />
@@ -60,8 +60,8 @@ export default function intro() {
     and right to left, respectively.
     <br />
     <br />
-    The algorithm&apos;s efficiency stems from its "divide-and-conquer" nature, where the problem is broken down into smaller subproblems 
-    that can be solved independently. The "greedy" aspect of QuickSort lies in its choice of pivot and immediate partitioning, 
+    The algorithm&apos;s efficiency stems from its divide-and-conquer nature, where the problem is broken down into smaller subproblems 
+    that can be solved independently. The greedy aspect of QuickSort lies in its choice of pivot and immediate partitioning, 
     assuming this local decision will lead to an efficient overall sort.
   </p>
 </section>
@@ -69,7 +69,7 @@ export default function intro() {
 <section className="mb-8">
   <h2 className="text-2xl font-semibold mb-4">Complexity</h2>
   <p className="text-gray-700">
-    QuickSort's performance varies depending on the implementation and the nature of the input data. 
+    QuickSorts performance varies depending on the implementation and the nature of the input data. 
     Overall, the randomized pivot selection version tends to offer the best average-case performance. 
     Conversely, the version with a fixed pivot selection (e.g., always choosing the last element) can lead to worst-case scenarios in certain input distributions.
     <br />
@@ -95,13 +95,13 @@ export default function intro() {
     <br />
 
     <br />
-    It's worth noting that despite the potential for worst-case quadratic performance, QuickSort is often faster in practice due to several factors:
+    Its worth noting that despite the potential for worst-case quadratic performance, QuickSort is often faster in practice due to several factors:
     <br />
     <br />
     <ul>
       <li>1. Cache efficiency: QuickSort operates on contiguous memory, which is cache-friendly.</li>
       <li>2. In-place sorting: Unlike MergeSort, QuickSort typically requires no additional memory allocation.</li>
-      <li>3. Adaptability: Various optimizations can be applied to improve QuickSort's performance on different types of input data.</li>
+      <li>3. Adaptability: Various optimizations can be applied to improve QuickSorts performance on different types of input data.</li>
     </ul>
     
   </p>
